@@ -1,3 +1,17 @@
+<html>
+<head>
+<style>
+code {
+  font-family: Consolas,"courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+  padding: 2px;
+  font-size: 105%;
+}
+</style>
+</head>
+<body>
+
 <h1 id="knock-it-over-mods-and-point-scoring-system">Knock It Over - Mods and Point Scoring System</h1>
 <h2 id="-game-context-"><strong>Game Context</strong></h2>
 <ul>
@@ -50,7 +64,7 @@
 <li>Throws left   </li>
 <li>Array of Objects Thrown this round    </li>
 </ul>
-<p>```
+<code>
 extends Node</p>
 </li>
 </ul>
@@ -234,7 +248,7 @@ GameManager<span class="hljs-selector-class">.round_state_changed</span><span cl
 <p>func apply_throwable_mod(_current_round_state: GameManager.ROUND_STATES):
     if throwable_data.throwable_mod_data.mod_script:
         throwable_data.throwable_mod_data.mod_script.apply_throwable_mod(throwable_data)</p>
-<p>```</p>
+<code></p>
 <ul>
 <li>A Room_Object Class:   <ul>
 <li>Holds a RoomDefinition custom resource with base_score and base_mults values   </li>
@@ -243,3 +257,6 @@ GameManager<span class="hljs-selector-class">.round_state_changed</span><span cl
 </ul>
 </li>
 </ul>
+
+</body>
+</html>

@@ -35,7 +35,7 @@
         - Throws left   
         - Array of Objects Thrown this round    
    
-    ```
+```gdscript
 extends Node
 
 enum ROUND_STATES {NOT_SET, ROUND_STARTED, THROWABLE_PICKED, THROWABLE_THROWN, ROOM_OBJECTS_PROCESSED, ROUND_SCORE_CALCULATED, ROUND_CLEARED, ROUND_FAILED}
@@ -127,12 +127,13 @@ func set_round_state(round_state: ROUND_STATES):
 
 func _on_room_cleared():
 	generate_room()
-
 ```
+
 - A Player:   
     - All the logic for throwing the Throwable   
     - A ThrowableHand component that tracks which throwables were generated, are equipped etc…   
-        ```
+        
+```gdscript
 extends Node3D
 class_name ThrowableHand
 
@@ -173,12 +174,12 @@ func _on_round_state_changed(current_round_state: GameManager.ROUND_STATES):
 	if current_round_state == GameManager.ROUND_STATES.ROUND_SCORE_CALCULATED:
 		if held_throwable:
 			held_throwable.queue_free()
-
 ```
+
 - A Throwable Class   
     - Each throwable object has a Custom Resource that defines properties about the object including a custom resource for a Mod   
    
-    ```
+```gdscript
 extends RigidBody3D
 class_name ThrowableObject
 
@@ -255,9 +256,9 @@ func disable_throwable():
 func apply_throwable_mod(_current_round_state: GameManager.ROUND_STATES):
 	if throwable_data.throwable_mod_data.mod_script:
 		throwable_data.throwable_mod_data.mod_script.apply_throwable_mod(throwable_data)
-
 ```
-- A Room\_Object Class:   
+
+- A Room\Object Class:   
     - Holds a RoomDefinition custom resource with base\_score and base\_mults values   
     - Tracks the state of the object   
     - Tells the GameManager that it's been flipped and should be counted   
